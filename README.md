@@ -2,19 +2,18 @@
 
 <img src="https://raw.githubusercontent.com/Devopstrio/.github/main/assets/Browser_logo.png" height="150" alt="Identity Landing Zone Logo" />
 
-<h1>Identity Landing Zone Platform</h1>
+<h1>Identity Landing Zone</h1>
 
-<p><strong>The Institutional-Grade Blueprint for Secure, Governed, and Scalable Identity Foundations across Hybrid and Multi-Cloud Ecosystems</strong></p>
+<p><strong>The Institutional-Grade Platform for Secure, Governed, and Scalable Identity Foundations across Hybrid and Multi-Cloud Ecosystems.</strong></p>
 
-[![Standard: NIST--800--207](https://img.shields.io/badge/Standard-NIST--800--207-blue.svg?style=for-the-badge&labelColor=000000)]()
-[![Status: Production--Ready](https://img.shields.io/badge/Status-Production--Ready-indigo.svg?style=for-the-badge&labelColor=000000)]()
-[![Security: Zero--Trust](https://img.shields.io/badge/Security-Zero--Trust-green.svg?style=for-the-badge&labelColor=000000)]()
-[![Identity: Multi--Provider](https://img.shields.io/badge/Identity-Multi--Provider-ff69b4?style=for-the-badge&labelColor=000000)]()
+[![Standard: Identity-Excellence](https://img.shields.io/badge/Standard-Identity--Excellence-blue.svg?style=for-the-badge&labelColor=000000)]()
+[![Status: Production--Ready](https://img.shields.io/badge/Status-Production--Ready-emerald.svg?style=for-the-badge&labelColor=000000)]()
+[![Focus: Zero--Trust--Identity](https://img.shields.io/badge/Focus-Zero--Trust--Identity-indigo.svg?style=for-the-badge&labelColor=000000)]()
 
 <br/>
 
 > **"Identity is the foundational layer of the modern enterprise."** 
-> The Identity Landing Zone is a flagship platform designed to provide reusable, production-ready blueprints for building and governing identity foundations. It enables organizations to modernize Active Directory, orchestrate cloud federation, and enforce Zero Trust controls at global scale.
+> **Identity Landing Zone** is an enterprise-grade platform designed to provide a secure, measurable, and highly automated foundation for global identity operations. It orchestrates the complex lifecycle of identity infrastructure—from multi-cloud tenant provisioning and hybrid synchronization to distributed tenant governance and unified identity lifecycle auditing.
 
 </div>
 
@@ -22,372 +21,262 @@
 
 ## 🏛️ Executive Summary
 
-The **Identity Landing Zone Platform** is a premium reference architecture designed for CIOs, CISOs, and Identity Platform Leaders. As enterprises shift to a multi-cloud and remote-first operating model, the ability to provide a consistent, secure, and governed identity foundation becomes the primary challenge of platform engineering.
+Fragmented identity silos and manual tenant provisioning are strategic operational liabilities; lack of centralized identity orchestration is a primary barrier to organizational cloud-native maturity. Organizations fail to maintain a secure identity foundation not because of a lack of directories, but because of fragmented landing zone standards, lack of automated synchronization validation, and an inability to orchestrate identity landing zones with operational precision.
 
-This platform provides a **Unified Identity Factory**. It demonstrates how to orchestrate **Workforce**, **Customer**, **Privileged**, and **Machine** identities through standardized, automated patterns. By integrating **FastAPI**, **React 18**, and **Terraform**, it provides a "Golden Path" for provisioning identity tenants, configuring federation trusts, and enforcing MFA baselines across AWS, Azure, GCP, and on-premises environments.
-
----
-
-## 📉 The "Identity Silo" Problem
-
-Enterprises without a standardized Identity Landing Zone encounter:
-- **Federation Fragmentation**: Multiple, disconnected SSO portals leading to a poor user experience.
-- **Legacy Technical Debt**: Insecure, on-premises Active Directory forests slowing down cloud migration.
-- **Machine Identity Chaos**: Manually managed service principal secrets and expiring certificates causing outages.
-- **Inconsistent MFA**: Patchy MFA coverage across the SaaS estate, creating security blind spots.
+This platform provides the **Identity Governance Intelligence Plane**. It implements a complete **Enterprise Identity-as-Code Framework**, enabling Security and Platform teams to manage global identity foundations as first-class citizens. By automating the identification of configuration drifts through real-time telemetry analysis and orchestrating the provisioning of governed multi-cloud tenants, we ensure that every organizational identity—from core directory admins to routine application users—is secured by default, audited for history, and strictly aligned with institutional identity frameworks.
 
 ---
 
-## 🚀 Strategic Drivers & Business Outcomes
+## 📐 Architecture Storytelling: Principal Reference Models
 
-### 🎯 Strategic Drivers
-- **Cloud-Native Modernization**: Moving away from legacy domain controllers to modern, cloud-native identity planes.
-- **Global Identity Sovereignty**: Managing regional identity tenants (e.g., EU-specific tenants) to meet data residency requirements.
-- **Institutional Agility**: Reducing the time to onboard new SaaS applications or cloud accounts from days to minutes.
+### 1. Principal Architecture: Global Identity Landing Zone & Governance Intelligence Plane
+This diagram illustrates the end-to-end flow from multi-cloud tenant provisioning and hybrid sync to distributed governance, Zero-Trust enforcement, and institutional LZ auditing.
 
-### 💰 Business Outcomes
-- **100% MFA Coverage**: Ensuring that every application is federated and secured with modern MFA from Day 1.
-- **Zero Outages from Certificate Expiry**: Automated rotation and monitoring of machine identities.
-- **Seamless M&A Integration**: Rapidly federating acquired companies into the enterprise identity hub.
-
----
-
-## 📐 Architecture Storytelling: 30+ Advanced Diagrams
-
-### 1. Executive Foundation Architecture
-*The high-level view of the identity foundation orchestrating global trusts.*
-```mermaid
-graph TD
-    subgraph "Identity Landing Zone Control Plane"
-        Portal[Management Portal]
-        Provisioner[Tenant Provisioner]
-        Federation[Federation Engine]
-        DB[(Foundation Ledger)]
-    end
-
-    subgraph "Identity Tiers"
-        Workforce[Workforce IDP]
-        Customer[Customer IDP]
-        Machine[Machine ID Hub]
-        Privileged[PAM Vaults]
-    end
-
-    subgraph "Consumer Ecosystem"
-        SaaS[SaaS Apps]
-        Cloud[Multi-Cloud Apps]
-        OnPrem[Legacy Apps]
-    end
-
-    Portal --> Provisioner
-    Provisioner --> IdentityTiers
-    Federation --> IdentityTiers
-    IdentityTiers --> ConsumerEcosystem
-    Provisioner --> DB
-```
-
-### 2. Hybrid Identity Topology
-*The coexistence model for On-Premises AD and Cloud-Native Identity.*
 ```mermaid
 graph LR
-    subgraph "On-Premises"
-        AD[Active Directory]
+    %% Subgraph Definitions
+    subgraph IdentityIngress["Identity & Foundation Ingress"]
+        direction TB
+        OnPrem_AD["On-Prem Active Directory"]
+        Cloud_IdPs["Entra ID / Okta / Ping / GCP"]
+        Machine_Identities["Workload & SPIFFE Identities"]
     end
-    subgraph "Identity Bridge"
-        Connect[Entra Connect / Okta Agent]
+
+    subgraph IntelligenceEngine["Governance Intelligence Hub"]
+        direction TB
+        API["FastAPI Governance Gateway"]
+        TenantProvisioner["Multi-Cloud Tenant Orch"]
+        SyncOrch["Hybrid Connectivity & Sync Hub"]
+        GovernanceHub["Identity Posture & Score Hub"]
     end
-    subgraph "Cloud Landing Zone"
-        IDP[Cloud IDP: Entra/Okta]
+
+    subgraph OperationsPlane["Distributed LZ Fleet"]
+        direction TB
+        SyncWorkers["Identity Sync & Replication Fleet"]
+        DriftDetectors["AIOps Config Pattern Scanners"]
+        GatekeeperProxies["Zero-Trust Access Proxies"]
     end
-    AD --> Connect
-    Connect --> IDP
-    IDP --> CloudApps[Cloud Native Apps]
-```
 
-### 3. Identity Tenant Provisioning Flow
-*The automated journey of creating a new governed identity environment.*
-```mermaid
-sequenceDiagram
-    participant User
-    participant API
-    participant Engine
-    participant IDP_API
-    participant Net
+    subgraph OperationsHub["Institutional LZ Hub"]
+        direction TB
+        Scorecard["LZ Maturity Scorecard"]
+        Analytics["Sync & Automation Stats"]
+        Audit["Forensic LZ Metadata Lake"]
+    end
 
-    User->>API: Request New Identity Tenant
-    API->>Engine: Trigger Provisioning Workflow
-    Engine->>IDP_API: Create Tenant/Sub-Org
-    Engine->>Net: Configure Private Connectivity
-    Engine->>Engine: Apply Baseline (MFA, RBAC, Logs)
-    Engine-->>API: Provisioning Complete
-    API->>User: Tenant Ready
-```
+    subgraph DevOps["Landing-Zone-as-Code Framework"]
+        direction TB
+        TF["Terraform Identity Modules"]
+        ShadowAdminBot["Privilege Drift Validator"]
+        ChatOps["LZ Governance Hub"]
+    end
 
-### 4. Federation Trust Strategy (Hub-Spoke)
-*Centralizing federation to reduce integration complexity.*
-```mermaid
-graph TD
-    Hub[Central Identity Hub]
-    Spoke1[App Cluster A]
-    Spoke2[SaaS Provider B]
-    Spoke3[Partner Network C]
+    %% Flow Arrows
+    IdentityIngress -->|1. Submit Identity Request| API
+    API -->|2. Provision Tenant| TenantProvisioner
+    TenantProvisioner -->|3. Sync Hybrid Identity| SyncOrch
+    SyncOrch -->|4. Assess Governance| GovernanceHub
     
-    Hub -- "OIDC / SAML" --> Spoke1
-    Hub -- "SAML / SCIM" --> Spoke2
-    Hub -- "Trust Federation" --> Spoke3
+    GovernanceHub -->|5. Execute Enforcement| OperationsPlane
+    OperationsPlane -->|6. Notify Status| ChatOps
+    API -->|7. Visualize Health| Scorecard
+    
+    Scorecard -->|8. Track Maturity| Analytics
+    Scorecard -->|9. Record Provision| Audit
+    
+    TF -->|10. Provision Backbone| IntelligenceEngine
+    ShadowAdminBot -->|11. Inject Privilege Risk| TenantProvisioner
+    Audit -->|12. Improve LZ| SyncWorkers
+
+    %% Styling
+    classDef ingress fill:#f5f5f5,stroke:#616161,stroke-width:2px;
+    classDef intel fill:#e8eaf6,stroke:#1a237e,stroke-width:2px;
+    classDef operations fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
+    classDef ops fill:#ede7f6,stroke:#311b92,stroke-width:2px;
+    classDef devops fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px;
+
+    class IdentityIngress ingress;
+    class IntelligenceEngine intel;
+    class OperationsPlane operations;
+    class OperationsHub ops;
+    class DevOps devops;
 ```
 
-### 5. Multi-Cloud Identity Mapping
-*Standardizing identity across AWS, Azure, and GCP.*
+### 2. The Identity LZ Lifecycle Flow
+The continuous path of an identity landing zone from initial provision (cloud) and hybrid connection to active Zero-Trust security, governance (scorecard), and institutional forensic auditing.
+
 ```mermaid
 graph LR
-    subgraph "Global Hub"
-        User[Employee Identity]
-    end
-    subgraph "Cloud Providers"
-        AWS[AWS IAM Identity Center]
-        AZ[Azure RBAC]
-        GCP[GCP IAM]
-    end
-    User --> AWS
-    User --> AZ
-    User --> GCP
+    Provision["Provision (Cloud)"] --> Connect["Connect (Hybrid)"]
+    Connect --> Secure["Secure (Zero Trust)"]
+    Secure --> Audit["Audit & Report"]
 ```
 
-### 6. MFA Conditional Access Flow
-*Context-aware verification for every access attempt.*
-```mermaid
-graph TD
-    Req[Access Request] --> Context{Risk Context?}
-    Context -- "High (New IP/Dev)" --> MFA[Force MFA + Policy]
-    Context -- "Low (Known Dev)" --> Success[Grant Access]
-    MFA --> Success
-    MFA -- "Fail" --> Deny[Block Request]
-```
+### 3. Distributed Multi-Cloud Identity Landing Zone Topology
+Strategically orchestrating identity infrastructure across global environments (AWS, Azure, GCP, and SaaS), providing a unified institutional view of global identity health and LZ readiness.
 
-### 7. Privileged Identity Foundation (PAM)
-*The secure path for administrative operations.*
 ```mermaid
 graph LR
-    Admin[Admin User] --> Vault[PAM Vault]
-    Vault --> Approval[Manager Approval]
-    Approval --> JIT[JIT Temporary Creds]
-    JIT --> Resource[Target Resource]
+    AWS["AWS: IAM Identity Center"] -->|Sync| Hub["Unified Identity Hub"]
+    Azure["Azure: Entra ID Foundation"] -->|Sync| Hub
+    GCP["GCP: Identity Platform"] -->|Sync| Hub
+    Hub --- Logic["Global Governance Engine"]
 ```
 
-### 8. Machine Identity PKI Model
-*Governing non-human identities through automated certificate lifecycles.*
+### 4. Hybrid Identity Connectivity & Sync Flow
+Executing complex logic for securing the bridge between on-premises Active Directory and Cloud-native IdPs, ensuring every organizational identity is synchronized and verified against institutional standards.
+
 ```mermaid
 graph TD
-    CA[Root CA] --> Issue[Issue Workload Cert]
-    Issue --> Pod[App Pod / Service]
-    Pod -- "Mutual TLS" --> Target[Target API]
-    Monitor[Monitor Expiry] --> Rotate[Auto-Rotate]
+    Local["Local AD Forest Data"] --> Bridge["Rule: Hybrid Sync Hub"]
+    Bridge --> Cloud["Rule: Cloud Attribute Map"]
+    Cloud -->|Evaluate| Context["PATH: Global Identity View"]
+    Context --- Estimate["Sync Confidence Score"]
 ```
 
-### 9. SSO Rollout Strategy (Modernization)
-*The phased transition from legacy to modern identity.*
+### 5. Multi-Tenant Governance & Isolation Flow
+Automatically managing identity isolation and cross-tenant synchronization for global conglomerates, ensuring institutional data residency and security boundaries by default.
+
 ```mermaid
 graph LR
-    Stage1[Audit Legacy Apps] --> Stage2[Pilot Modern IDP]
-    Stage2 --> Stage3[Federate Cloud Apps]
-    Stage3 --> Stage4[Decommission Legacy AD]
+    Org["Global Conglomerate"] -->|Apply| Guard["Multi-Tenant Isolation Hub"]
+    Guard -->|Violate| Alert["Tenant Leakage Alert"]
+    Guard -->|Pass| Verify["Status: Isolated Tenant"]
+    Verify --- Audit["Isolation Compliance Log"]
 ```
 
-### 10. Compliance Evidence Generation
-*Generating automated proof of identity governance.*
+### 6. Zero-Trust Access & Conditional Gatekeeper Flow
+Managing the lifecycle of an access request, automatically enforcing institutional security baselines at the LZ entry point for all identities, ensuring zero-latency security confidence.
+
 ```mermaid
 graph LR
-    Logs[Audit & Auth Logs] --> ETL[Evidence Processor]
-    ETL --> Reports[SLA / Compliance PDFs]
-    Reports --> Dashboard[Executive Scorecard]
+    Request["Access Request"] -->|Check| Gatekeeper["Zero-Trust Policy Bot"]
+    Gatekeeper -->|Verify| Auth["MFA & Posture Check"]
+    Auth -->|Pass| Admit["Status: Admitted"]
+    Admit --- Audit["Access Compliance Log"]
 ```
 
-### 11. B2C Registration Workflow (Customer IAM)
+### 7. Institutional Identity Maturity Scorecard
+Grading organizational performance based on key indicators: Security Coverage, Automation Maturity, and Compliance Adherence Index.
+
 ```mermaid
 graph TD
-    User[Customer] --> Portal[Sign-Up Page]
-    Portal --> B2C[Azure AD B2C / Auth0]
-    B2C --> MFA[Identity Proofing]
-    MFA --> DB[Customer Profile Created]
+    Post["Identity Health: 97%"] --> Risk["Governance Gap: 3%"]
+    Post --- C1["Security Coverage (100%)"]
+    Post --- C2["Automation Maturity (95%)"]
 ```
 
-### 12. Passwordless Readiness Engine
+### 8. Identity & RBAC for LZ Governance
+Managing fine-grained access to landing zone hubs, synchronization workers, and audit logs between LZ Architects, Security Policy Owners, and Platform Engineers.
+
+```mermaid
+graph TD
+    Architect["LZ Architect"] --> Hub["Manage foundation rules"]
+    Owner["Security Policy Owner"] --> Exec["Execute governance checks"]
+    Engineer["Platform Engineer"] --> Audit["Verify LZ Proofs"]
+```
+
+### 9. IaC Deployment: Landing-Zone-as-Code Framework
+Using modular Terraform to deploy and manage the versioned distribution of the identity tracking hubs, governance workers, and forensic metadata lakes.
+
 ```mermaid
 graph LR
-    User[User Device] --> FIDO[FIDO2 / WebAuthn]
-    FIDO --> Login[Biometric Login]
-    Login --> App[Access Granted]
+    HCL["Infrastructure Code"] --> TF["Terraform Apply"]
+    TF --> Engine["Governance Control Plane"]
+    Engine --> Clusters["HA Validation Fleet"]
 ```
 
-### 13. Hybrid Domain Trust Model
-```mermaid
-graph TD
-    ForestA[On-Prem Forest A] <->|Trust| ForestB[On-Prem Forest B]
-    ForestB --> Bridge[Cloud IDP Sync]
-```
+### 10. AIOps Identity Drift & Compliance Validation Flow
+Using advanced analytics to identify sudden surges in shadow admins, suspicious configuration drifts, or unusual tenant pattern changes that could result in institutional risk.
 
-### 14. OIDC Client Registration Flow
-```mermaid
-sequenceDiagram
-    App->>IDP: POST /register_client
-    IDP-->>App: client_id, client_secret
-```
-
-### 15. SAML Assertion Exchange
-```mermaid
-sequenceDiagram
-    SP->>IDP: AuthnRequest
-    IDP-->>SP: SAML Response (Signed)
-```
-
-### 16. Just-In-Time (JIT) Admin Elevation
-```mermaid
-graph TD
-    Admin[Admin] -->|Request| IGA[IGA Engine]
-    IGA -->|Temporary Role| Cloud[AWS/Azure Role]
-    Cloud -->|Expire| Revoke[Auto-Revoke]
-```
-
-### 17. Machine Certificate Auto-Renewal
 ```mermaid
 graph LR
-    Cert[Cert] --> Expiry[Expiring Soon]
-    Expiry --> ACME[ACME Trigger]
-    ACME --> New[New Cert Installed]
+    Drift["Config Change Event"] --> Analyzer["Drift Detection Bot"]
+    Analyzer -->|Anomaly| Alert["Governance Integrity Alert"]
+    Analyzer -->|Normal| Pass["Status Optimal"]
 ```
 
-### 18. Identity Firewall (Conditional Access)
-```mermaid
-graph TD
-    Login[Auth Request] --> IP[Known IP?]
-    IP -- No --> Block[Deny Access]
-```
+### 11. Metadata Lake for Forensic LZ Audit
+Storing long-term records of every LZ provisioned, every configuration change recorded, and every identity sync event for institutional record-keeping, compliance auditing, and post-provisioning forensics.
 
-### 19. SCIM Group Provisioning Workflow
 ```mermaid
 graph LR
-    IDP[Cloud IDP] -->|SCIM Push| SaaS[SaaS App]
-    SaaS -->|Sync Group| Local[App Permissions]
+    Provision["Provision Interaction Event"] --> Stream["Forensic Stream"]
+    Stream --> Lake["LZ Metadata Lake"]
+    Lake --> Trends["Governance Efficiency Trends"]
 ```
 
-### 20. Secrets Bootstrapping (Terraform)
-```mermaid
-graph TD
-    TF[Terraform] --> Vault[Vault Injection]
-    Vault --> Pod[App Pod Env Var]
-```
+---
 
-### 21. Multi-Tenant Identity Factory
-```mermaid
-graph TD
-    Factory[Identity Factory] --> T1[Tenant A (Prod)]
-    Factory --> T2[Tenant B (Dev)]
-```
+## 🏛️ Core Governance Pillars
 
-### 22. Regional Identity Replication
-```mermaid
-graph LR
-    Primary[US-East IDP] <->|Replicate| Secondary[EU-West IDP]
-```
-
-### 23. Application Proxy Architecture
-```mermaid
-graph TD
-    User[External User] --> Proxy[Identity Proxy]
-    Proxy -->|Kerberos/NTLM| App[Legacy Internal App]
-```
-
-### 24. Identity Threat Detection (ITDR)
-```mermaid
-graph LR
-    Log[Auth Logs] --> Detect[Anomaly Detect]
-    Detect --> Lock[Account Lockout]
-```
-
-### 25. Federated Identity Mapping (Claims)
-```mermaid
-graph TD
-    IDP[IDP Claim] --> Map[Mapping Rule]
-    Map --> App[App Attribute]
-```
-
-### 26. Entitlement Governance (SaaS)
-```mermaid
-graph LR
-    SaaS[SaaS App] --> Fetch[Fetch Rights]
-    Fetch --> Audit[Compliance Review]
-```
-
-### 27. Zero Trust Scorecard Flow
-```mermaid
-graph TD
-    Metrics[MFA/Device/Health] --> Score[Zero Trust Score]
-```
-
-### 28. Forensic Identity Audit
-```mermaid
-graph LR
-    Alert[Security Alert] --> Investigate[Auth Chain Analysis]
-    Investigate --> Root[Compromised Credential ID]
-```
-
-### 29. B2B Guest Collaboration
-```mermaid
-graph TD
-    Partner[Partner Identity] --> Invite[Guest Invitation]
-    Invite --> Access[Shared Resource Access]
-```
-
-### 30. M&A Directory Integration
-```mermaid
-graph LR
-    Acq[Acquired Org] --> Sync[Global Directory Sync]
-```
+1.  **Unified Foundation Coordination**: Maximizing resilience by centralizing all identity measurement through a single institutional plane.
+2.  **Automated Tenant Provisioning**: Eliminating "manual silo" scenarios through proactive orchestration and pattern verification.
+3.  **Sequential Synchronization Intelligence**: Ensuring zero-interruption operations through dependency-aware multi-cloud replication.
+4.  **Zero-Trust LZ Protection**: Automatically enforcing identity-based access and rule evaluation across all LZ tiers.
+5.  **Autonomous Governance Logic**: Guaranteeing reliability through automated industry-specific identity monitoring runbooks.
+6.  **Full LZ Auditability**: Immutable recording of every tenant provision and configuration change for institutional forensics.
 
 ---
 
 ## 🛠️ Technical Stack & Implementation
 
-### Identity Platforms
-- **Cloud**: Entra ID (Azure AD), Okta, AWS IAM Identity Center
-- **Customer**: Azure AD B2C, Auth0
-- **On-Premise**: Active Directory, OpenLDAP
+### Governance Engine & APIs
+*   **Framework**: Python 3.11+ / FastAPI.
+*   **Tenant Engine**: Custom Python-based logic for multi-cloud IdP provisioning and DORA-style identity metrics.
+*   **Integrations**: Native connectors for Entra ID, Okta, Ping, and Cloud IAM APIs.
+*   **Persistence**: PostgreSQL (Governance Ledger) and Redis (Live LZ State).
+*   **Auth Orchestrator**: Federated OIDC/SAML for least-privilege identity management access.
 
-### Core Platforms
-- **Framework**: React 18 / Vite
-- **API**: FastAPI (Python)
-- **IaC**: Terraform (Global Multi-Cloud)
+### Governance Dashboard (UI)
+*   **Framework**: React 18 / Vite.
+*   **Theme**: Dark, Blue, Indigo (Modern high-fidelity foundation aesthetic).
+*   **Visualization**: D3.js for identity topologies and Recharts for governance velocity analytics.
+
+### Infrastructure & DevOps
+*   **Runtime**: AWS EKS or Azure Kubernetes Service (AKS) for management plane.
+*   **Governance Hub**: Managed event sourcing for immutable identity security timeline reconstruction.
+*   **IaC**: Modular Terraform for deploying the identity landing zone and validation fleet.
+
+---
+
+## 🏗️ IaC Mapping (Module Structure)
+
+| Module | Purpose | Real Services |
+| :--- | :--- | :--- |
+| **`infrastructure/idp_hub`** | Central management plane | EKS, PostgreSQL, Redis |
+| **`infrastructure/tenants`** | Distributed LZ provisioners | K8s Workers, Cloud APIs |
+| **`infrastructure/connectors`** | Multi-Cloud Sync Hubs | Webhooks, Lambda |
+| **`infrastructure/auditing`** | Forensic LZ sinks | S3, Athena, Quicksight |
 
 ---
 
 ## 🚀 Deployment Guide
 
-### Local Development
+### Local Principal Environment
 ```bash
-# Clone the repository
+# Clone the landing zone platform
 git clone https://github.com/devopstrio/identity-landingzone.git
 cd identity-landingzone
 
-# Setup environment
+# Configure environment
 cp .env.example .env
 
-# Launch platform
-make up
+# Launch the Landing Zone stack
+make init
+
+# Trigger a mock tenant provisioning and automated identity sync simulation
+make simulate-lz
 ```
 
-### Production Hardening
-- **Secret Management**: Native integration with AWS Secrets Manager / Azure Key Vault.
-- **Networking**: Private endpoints for all identity synchronization traffic.
+Access the Management Portal at `http://localhost:3000`.
 
 ---
 
+## 📜 License
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
 <div align="center">
-
-### 🛡️ Built by Devopstrio
-*Institutional-Grade Platforms for the Modern Enterprise*
-
-[Website](https://devopstrio.com) • [Contact](mailto:support@devopstrio.com) • [LinkedIn](https://linkedin.com/company/devopstrio)
-
-© 2024 Devopstrio. All rights reserved.
-
+  <p>© 2026 Devopstrio. All rights reserved.</p>
 </div>
